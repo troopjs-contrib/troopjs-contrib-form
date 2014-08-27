@@ -10,8 +10,7 @@
     "test",
     "tests",
     "assets",
-    "example",
-    "examples"
+    "example"
   ],
   "dependencies": {
     "requirejs": ">=2.1.14",
