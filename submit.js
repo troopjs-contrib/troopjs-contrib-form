@@ -3,17 +3,34 @@ define([
 	"jquery",
 	"./util/jquery.serializeObject"
 ], function (Widget, $) {
-	var POST = "post";
+	var STATUS = "status";
+	var ARRAY_SLICE = Array.prototype.slice;
+
+	function XhrError() {
+		var codes = ARRAY_SLICE.call(arguments);
+
+		return function (result) {
+			return result && $.inArray(codes, result[STATUS]);
+		}
+	}
 
 	return Widget.extend({
 		"dom/submit": function ($event) {
+			var me = this;
 			var $target = $($event.target);
 
-			this
+			me
 				.publish("ajax", {
 					"url": $target.attr("action"),
-					"type": $target.attr("method") || POST,
+					"type": $target.attr("method") || "post",
 					"data": $target.serializeObject()
+				})
+				.catch(XhrError(404), function (xhr) {
+					return [ {
+						"type": "error",
+						"code": xhr.status,
+						"text": xhr.responseText
+					} ];
 				})
 				.spread(function (response) {
 					return $target.trigger("form/response", [ response ]);
