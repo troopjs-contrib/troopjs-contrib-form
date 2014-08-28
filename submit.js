@@ -23,9 +23,10 @@ define([
 				.publish("ajax", {
 					"url": $target.attr("action"),
 					"type": $target.attr("method") || "post",
-					"data": $target.serializeObject()
+					"data": $target.serializeObject(),
+					"dataType": "json"
 				})
-				.catch(XhrError(404), function (xhr) {
+				.catch(XhrError(404, 500), function (xhr) {
 					return [ {
 						"type": "error",
 						"code": xhr.status,
