@@ -3,9 +3,9 @@ define([
 	"jquery"
 ], function (Widget, $) {
 	var CODE = "code";
-	var FIELD = "field";
 	var FIELDS = "fields";
 	var TYPE = "type";
+	var NAME = "name";
 	var TEXT = "text";
 	var SUCCESS = "success";
 	var WARNING = "warning";
@@ -31,7 +31,7 @@ define([
 						.addClass("help-block")
 						.text(field[TEXT])
 						.insertAfter($target
-							.find(":input[name='" + field[FIELD] + "']")
+							.find(":input[name='" + field[NAME] + "']")
 							.addClass(function () {
 								switch (field[TYPE]) {
 									case SUCCESS:
