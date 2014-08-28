@@ -26,14 +26,14 @@ define([
 			var $target = $($event.target);
 
 			if (response[CODE] !== 0) {
-				$.each(response[FIELDS] || false, function (index, message) {
+				$.each(response[FIELDS] || false, function (index, field) {
 					$("<p>")
 						.addClass("help-block")
-						.text(message[TEXT])
+						.text(field[TEXT])
 						.insertAfter($target
-							.find(":input[name='" + message[FIELD] + "']")
+							.find(":input[name='" + field[FIELD] + "']")
 							.addClass(function () {
-								switch (message[TYPE]) {
+								switch (field[TYPE]) {
 									case SUCCESS:
 										return "has-success";
 										break;
