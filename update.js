@@ -11,7 +11,7 @@ define([
 			var $target = $($event.target);
 
 			$.each(response[FIELDS] || false, function (index, field) {
-			$target
+				$target
 					.find(":input[name='" + field[FIELD] + "']")
 					.val(field[VALUE])
 			});
