@@ -15,7 +15,7 @@ define([
 					"data": $target.serializeObject(),
 					"dataType": "json"
 				})
-				.catch(function (xhr) {
+				["catch"](function (xhr) {
 					return [ xhr.responseJSON || {
 						"type": "error",
 						"code": xhr.status,
