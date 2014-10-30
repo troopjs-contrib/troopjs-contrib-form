@@ -2,7 +2,7 @@ define([
 	"troopjs-dom/component/widget",
 	"jquery",
 	"query-string",
-	"./util/jquery.deserializeObject"
+	"mu-jquery-deserialize-object"
 ], function (Widget, $, queryString) {
 	var $ELEMENT = "$element";
 

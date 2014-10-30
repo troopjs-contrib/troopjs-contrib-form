@@ -1,7 +1,7 @@
 define([
 	"troopjs-dom/component/widget",
 	"jquery",
-	"./util/jquery.serializeObject"
+	"mu-jquery-serialize-object"
 ], function (Widget, $) {
 	return Widget.extend({
 		"dom/submit": function ($event) {

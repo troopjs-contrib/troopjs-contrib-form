@@ -1,7 +1,7 @@
 define([
 	"troopjs-dom/component/widget",
 	"jquery",
-	"./util/jquery.deserializeArray"
+	"mu-jquery-deserialize-array"
 ], function (Widget, $) {
 	var FIELDS = "fields";
 
