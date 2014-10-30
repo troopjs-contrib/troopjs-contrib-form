@@ -15,7 +15,7 @@ define([
 					"data": $target.serializeObject(),
 					"dataType": "json"
 				})
-                .otherwise(function (xhr) {
+				.otherwise(function (xhr) {
 					return [ xhr.responseJSON || {
 						"type": "error",
 						"code": xhr.status,
