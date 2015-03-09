@@ -1,13 +1,13 @@
 define([
-	"troopjs-dom/component/widget",
-	"jquery",
-	"mu-jquery-deserialize-array"
-], function (Widget, $) {
-	var FIELDS = "fields";
+  "troopjs-dom/component",
+  "jquery",
+  "mu-jquery-deserialize-object/jquery.deserializeObject",
+  "mu-jquery-deserialize-array/jquery.deserializeArray"
+], function(Widget, $) {
 
-	return Widget.extend({
-		"dom/form/response": function ($event, response) {
-			$($event.target).deserializeArray(response[FIELDS]);
-		}
-	});
+  return Widget.extend({
+    "dom/form/update": function($event, data) {
+      $($event.target)[$.isArray(data) ? "deserializeArray" : "deserializeObject"](data);
+    }
+  });
 });
